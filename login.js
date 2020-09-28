@@ -10,3 +10,13 @@ var connection = mysql.createConnection({
 	password : 'Wakanda2030',
 	database : 'nodelogin'
 });
+
+var app = express();
+app.use(session({
+	secret: 'secret',
+	resave: true,
+	saveUninitialized: true
+}));
+app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.json());
+
